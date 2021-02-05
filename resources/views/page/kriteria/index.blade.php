@@ -4,7 +4,7 @@
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">Admin</h4>
+            <h4 class="page-title">Kriteria</h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -26,31 +26,27 @@
     @endif
         <div class="card-body">
             <h5 class="card-title">
-                <a href="{{ route('admin.create') }}" class="btn btn-cyan btn-sm"><i class="fa fa-plus"></i> Add</a>
+                <a href="{{ route('kriteria.create') }}" class="btn btn-cyan btn-sm"><i class="fa fa-plus"></i> Add</a>
             </h5>
             <div class="table-responsive">
                 <table id="zero_config" class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>No Telpon</th>
-                            <th>Level</th>
+                            <th>Nama Kriteria</th>
+                            <th>Bobot</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($admin as $no => $admin)
+                        @foreach($kriteria as $no => $kriteria)
                         <tr>
                             <td>{{ $no + 1 }}</td>
-                            <td>{{ $admin->admin_name }}</td>
-                            <td>{{ $admin->admin_email }}</td>
-                            <td>{{ $admin->admin_notelp }}</td>
-                            <td>{{ $admin->admin_level }}</td>
+                            <td>{{ $kriteria->kriteria_nama }}</td>
+                            <td>{{ $kriteria->kriteria_bobot }}</td>
                             <td>
-                                <a href="{{ route('admin.edit', $admin->admin_id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Update</a>
-                                <button type="button" class="btn btn-danger btn-sm" onclick="mHapus('{{ route('admin.delete', $admin->admin_id) }}')"><i class="fa fa-trash"></i> Delete</button>
+                                <a href="{{ route('kriteria.edit', $kriteria->kriteria_id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Update</a>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="mHapus('{{ route('kriteria.delete', $kriteria->kriteria_id) }}')"><i class="fa fa-trash"></i> Delete</button>
                             </td>
                         </tr>
                         @endforeach

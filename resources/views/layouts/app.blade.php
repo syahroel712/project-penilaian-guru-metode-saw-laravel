@@ -55,7 +55,7 @@
                         <span class="logo-text">
                             <!-- dark Logo text -->
                             <!-- <img src="{{ asset('frontend/img/logo-insan-mandiri.png')}}" alt="homepage" class="light-logo" style="width: 10em;" > -->
-                            <h3 style="margin-top: 10px;">Insan Mandiri</h3>
+                            <h3 style="margin-top: 10px;">SPK - SAW</h3>
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->

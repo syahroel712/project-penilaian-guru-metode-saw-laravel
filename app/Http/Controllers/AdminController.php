@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ class AdminController extends Controller
     {
         $admin = Admin_Model::all();
         return view(
-            'admin/page/admin/index',
+            'page/admin/index',
             [
                 'admin' => $admin
             ]
@@ -24,7 +24,7 @@ class AdminController extends Controller
     public function create()
     {
         return view(
-            'admin/page/admin/form',
+            'page/admin/form',
             [
                 'url' => 'admin.store'
             ]
@@ -34,9 +34,8 @@ class AdminController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'admin_name'         => 'required',
-            'admin_email'         => 'required|email|unique:admin,admin_email',
+            'admin_email'         => 'required|email|unique:tb_admin,admin_email',
             'admin_password'         => 'required',
-            'admin_level'         => 'required',
             'admin_notelp'         => 'required|numeric',
         ]);
 
@@ -52,7 +51,7 @@ class AdminController extends Controller
             $admin->admin_name = $request->input('admin_name');
             $admin->admin_email = $request->input('admin_email');
             $admin->admin_notelp = $request->input('admin_notelp');
-            $admin->admin_level = $request->input('admin_level');
+            $admin->admin_level = 'admin';
             $admin->admin_password = $pwd;
             $admin->save();
 
@@ -65,7 +64,7 @@ class AdminController extends Controller
     public function edit(Admin_Model $admin)
     {
         return view(
-            'admin/page/admin/form',
+            'page/admin/form',
             [
                 'admin' => $admin,
                 'url' => 'admin.update',
@@ -80,7 +79,6 @@ class AdminController extends Controller
             'admin_email'         => 'required|email',
             // 'admin_email'         => 'required|email|unique:admin,admin_email',Rule::unique('admin')->ignore($admin->admin_id),
             'admin_notelp'         => 'required|numeric',
-            'admin_level'         => 'required',
         ]);
 
         if($validator->fails()){
@@ -98,7 +96,6 @@ class AdminController extends Controller
             $admin->admin_name = $request->input('admin_name');
             $admin->admin_email = $request->input('admin_email');
             $admin->admin_notelp = $request->input('admin_notelp');
-            $admin->admin_level = $request->input('admin_level');
             $admin->save();
 
             return redirect()

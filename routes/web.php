@@ -31,29 +31,29 @@ Route::middleware(['sudah_login'])->group(function () {
     Route::put('admin/{admin}', 'AdminController@update')->name('admin.update');
     Route::delete('admin/{admin}', 'AdminController@destroy')->name('admin.delete');
 
-    // brand
-    Route::get('brands', 'BrandController@index')->name('brands');
-    Route::get('brands/create', 'BrandController@create')->name('brands.create');
-    Route::post('brands', 'BrandController@store')->name('brands.store');
-    Route::get('brands/{brand}', 'BrandController@edit')->name('brands.edit');
-    Route::put('brands/{brand}', 'BrandController@update')->name('brands.update');
-    Route::delete('brands/{brand}', 'BrandController@destroy')->name('brands.delete');
+    // guru
+    Route::get('guru', 'GuruController@index')->name('guru');
+    Route::get('guru/create', 'GuruController@create')->name('guru.create');
+    Route::post('guru', 'GuruController@store')->name('guru.store');
+    Route::get('guru/{guru}', 'GuruController@edit')->name('guru.edit');
+    Route::put('guru/{guru}', 'GuruController@update')->name('guru.update');
+    Route::delete('guru/{guru}', 'GuruController@destroy')->name('guru.delete');
 
-    // slider
-    Route::get('sliders', 'SliderController@index')->name('sliders');
-    Route::get('sliders/create', 'SliderController@create')->name('sliders.create');
-    Route::post('sliders', 'SliderController@store')->name('sliders.store');
-    Route::get('sliders/{slider}', 'SliderController@edit')->name('sliders.edit');
-    Route::put('sliders/{slider}', 'SliderController@update')->name('sliders.update');
-    Route::delete('sliders/{slider}', 'SliderController@destroy')->name('sliders.delete');
+    // sekolah
+    Route::get('sekolah', 'SekolahController@index')->name('sekolah');
+    Route::get('sekolah/create', 'SekolahController@create')->name('sekolah.create');
+    Route::post('sekolah', 'SekolahController@store')->name('sekolah.store');
+    Route::get('sekolah/{sekolah}', 'SekolahController@edit')->name('sekolah.edit');
+    Route::put('sekolah/{sekolah}', 'SekolahController@update')->name('sekolah.update');
+    Route::delete('sekolah/{sekolah}', 'SekolahController@destroy')->name('sekolah.delete');
 
     // categories
-    Route::get('categories', 'CategoryController@index')->name('categories');
-    Route::get('categories/create', 'CategoryController@create')->name('categories.create');
-    Route::post('categories', 'CategoryController@store')->name('categories.store');
-    Route::get('categories/{category}', 'CategoryController@edit')->name('categories.edit');
-    Route::put('categories/{category}', 'CategoryController@update')->name('categories.update');
-    Route::delete('categories/{category}', 'CategoryController@destroy')->name('categories.delete');
+    Route::get('kriteria', 'KriteriaController@index')->name('kriteria');
+    Route::get('kriteria/create', 'KriteriaController@create')->name('kriteria.create');
+    Route::post('kriteria', 'KriteriaController@store')->name('kriteria.store');
+    Route::get('kriteria/{kriteria}', 'KriteriaController@edit')->name('kriteria.edit');
+    Route::put('kriteria/{kriteria}', 'KriteriaController@update')->name('kriteria.update');
+    Route::delete('kriteria/{kriteria}', 'KriteriaController@destroy')->name('kriteria.delete');
 
     // blogs
     Route::get('blogs', 'BlogController@index')->name('blogs');

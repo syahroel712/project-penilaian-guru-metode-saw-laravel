@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="page-breadcrumb">
@@ -62,28 +62,6 @@
                     <div class="input-group">
                         <input type="password" class="form-control @error('admin_password') {{ 'is-invalid' }} @enderror" name="admin_password" value="{{ old('admin_password') ?? '' }}">
                         @error('admin_password')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Level</label>
-                    <div class="input-group">
-                        <select name="admin_level" id="admin_level"
-                            class="form-control @error('admin_level') {{ 'is-invalid' }} @enderror">
-                            <option value="">-Pilih-</option>
-                            <option {{ (old('admin_level') == 'admin' ? 'selected':'') }} value="admin">
-                                Admin</option>
-                            <option {{ (old('admin_level') == 'karyawan' ? 'selected':'') }}
-                                value="karyawan">Karyawan</option>
-                        </select>
-                        @if(isset($admin))
-                        <script>
-                            document.getElementById('admin_level').value =
-                                '<?php echo $admin->admin_level ?>'
-                        </script>
-                        @endif
-                        @error('admin_level')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

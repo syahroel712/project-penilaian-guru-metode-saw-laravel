@@ -25,12 +25,12 @@
             @method('put')
             @endif
             <div class="card-body">
-                <h4 class="card-title text-center">Kriteria Penilaian</h4>
+                <h4 class="card-title text-center">Kriteria</h4>
                 <hr>
                 <div class="form-group">
                     <label>Nama Kriteria</label>
                     <div class="input-group">
-                        <input type="text" class="form-control @error('kriteria_nama') {{ 'is-invalid' }} @enderror" name="kriteria_nama" value="{{ old('kriteria_nama') ?? $kriteria->kriteria_nama ?? '' }}">
+                        <input type="text" class="form-control @error('kriteria_nama') {{ 'is-invalid' }} @enderror" name="kriteria_nama" value="{{ old('kriteria_nama') ?? $kriteria->kriteria_nama ?? '' }}" readonly>
                         @error('kriteria_nama')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

@@ -1,10 +1,10 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">Brands</h4>
+            <h4 class="page-title">Kriteria Penilaian</h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -26,33 +26,35 @@
     @endif
         <div class="card-body">
             <h5 class="card-title">
-                <a href="{{ route('brands.create') }}" class="btn btn-cyan btn-sm"><i class="fa fa-plus"></i> Add</a>
+                <a href="{{ route('kriteria-penilaian.create') }}" class="btn btn-cyan btn-sm"><i class="fa fa-plus"></i> Add</a>
             </h5>
             <div class="table-responsive">
                 <table id="zero_config" class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Brand</th>
-                            <th>Logo Brand</th>
-                            <th>Status</th>
+                            <th>Nama Guru</th>
+                            <th>Sekolah</th>
+                            <th>Portofolio</th>
+                            <th>Presentasi Best Practice</th>
+                            <th>Wawancara</th>
+                            <th>Tes Tertulis</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($brands as $no => $brand)
+                        @foreach($kriteria_penilaian as $no => $penilaian)
                         <tr>
                             <td>{{ $no + 1 }}</td>
-                            <td>{{ $brand->brand_name }}</td>
-                            <td> <img src="{{ asset('frontend/img/brand/' . $brand->brand_file )}}" alt="homepage"
-                                    class="light-logo" style="width: 10em;"></td>
-                            <td>{{ $brand->brand_published }}</td>
+                            <td>{{ $penilaian->guru_nama }}</td>
+                            <td>{{ $penilaian->sekolah_nama }}</td>
+                            <td>{{ $penilaian->penilaian_portofolio }}</td>
+                            <td>{{ $penilaian->penilaian_presentasi }}</td>
+                            <td>{{ $penilaian->penilaian_wawancara }}</td>
+                            <td>{{ $penilaian->penilaian_tes_tulis }}</td>
                             <td>
-                                <a href="{{ route('brands.edit', $brand->brand_id) }}" class="btn btn-warning btn-sm"><i
-                                        class="fa fa-edit"></i> Update</a>
-                                <button type="button" class="btn btn-danger btn-sm"
-                                    onclick="mHapus('{{ route('brands.delete', $brand->brand_id) }}')"><i
-                                        class="fa fa-trash"></i> Delete</button>
+                                <a href="{{ route('kriteria-penilaian.edit', $penilaian->penilaian_id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Update</a>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="mHapus('{{ route('kriteria-penilaian.delete', $penilaian->penilaian_id) }}')"><i class="fa fa-trash"></i> Delete</button>
                             </td>
                         </tr>
                         @endforeach

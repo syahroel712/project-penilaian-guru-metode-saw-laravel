@@ -26,7 +26,9 @@
     @endif
         <div class="card-body">
             <h5 class="card-title">
+                {{--
                 <a href="{{ route('kriteria.create') }}" class="btn btn-cyan btn-sm"><i class="fa fa-plus"></i> Add</a>
+                --}}
             </h5>
             <div class="table-responsive">
                 <table id="zero_config" class="table table-striped table-bordered">
@@ -46,7 +48,9 @@
                             <td>{{ $kriteria->kriteria_bobot }}</td>
                             <td>
                                 <a href="{{ route('kriteria.edit', $kriteria->kriteria_id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Update</a>
-                                <button type="button" class="btn btn-danger btn-sm" onclick="mHapus('{{ route('kriteria.delete', $kriteria->kriteria_id) }}')"><i class="fa fa-trash"></i> Delete</button>
+                                {{-- 
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="mHapus('{{ route('kriteria.delete', $kriteria->kriteria_id) }}')"><i class="fa fa-trash"></i> Delete</button>
+                                --}}
                             </td>
                         </tr>
                         @endforeach

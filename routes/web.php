@@ -47,7 +47,7 @@ Route::middleware(['sudah_login'])->group(function () {
     Route::put('sekolah/{sekolah}', 'SekolahController@update')->name('sekolah.update');
     Route::delete('sekolah/{sekolah}', 'SekolahController@destroy')->name('sekolah.delete');
 
-    // categories
+    // kriteria
     Route::get('kriteria', 'KriteriaController@index')->name('kriteria');
     Route::get('kriteria/create', 'KriteriaController@create')->name('kriteria.create');
     Route::post('kriteria', 'KriteriaController@store')->name('kriteria.store');
@@ -55,96 +55,16 @@ Route::middleware(['sudah_login'])->group(function () {
     Route::put('kriteria/{kriteria}', 'KriteriaController@update')->name('kriteria.update');
     Route::delete('kriteria/{kriteria}', 'KriteriaController@destroy')->name('kriteria.delete');
 
-    // blogs
-    Route::get('blogs', 'BlogController@index')->name('blogs');
-    Route::get('blogs/create', 'BlogController@create')->name('blogs.create');
-    Route::post('blogs', 'BlogController@store')->name('blogs.store');
-    Route::get('blogs/{blog}', 'BlogController@edit')->name('blogs.edit');
-    Route::put('blogs/{blog}', 'BlogController@update')->name('blogs.update');
-    Route::delete('blogs/{blog}', 'BlogController@destroy')->name('blogs.delete');
+    // kriteria-penilaian
+    Route::get('kriteria-penilaian', 'KriteriaPenilaianController@index')->name('kriteria-penilaian');
+    Route::get('kriteria-penilaian/create', 'KriteriaPenilaianController@create')->name('kriteria-penilaian.create');
+    Route::post('kriteria-penilaian', 'KriteriaPenilaianController@store')->name('kriteria-penilaian.store');
+    Route::get('kriteria-penilaian/{kriteria_penilaian}', 'KriteriaPenilaianController@edit')->name('kriteria-penilaian.edit');
+    Route::put('kriteria-penilaian/{kriteria_penilaian}', 'KriteriaPenilaianController@update')->name('kriteria-penilaian.update');
+    Route::delete('kriteria-penilaian/{kriteria_penilaian}', 'KriteriaPenilaianController@destroy')->name('kriteria-penilaian.delete');
 
-    Route::get('blogs/comment/{blog}', 'BlogController@comment')->name('blogs.comment');
-    Route::delete('comments/{comment}', 'BlogController@destroy_comment')->name('comments.delete');
-
-    // product
-    Route::get('products', 'ProductController@index')->name('products');
-    Route::get('products/create', 'ProductController@create')->name('products.create');
-    Route::post('products', 'ProductController@store')->name('products.store');
-    Route::get('products/{product}', 'ProductController@edit')->name('products.edit');
-    Route::put('products/{product}', 'ProductController@update')->name('products.update');
-    Route::delete('products/{product}', 'ProductController@destroy')->name('products.delete');
+    // analisa
+    Route::get('analisa', 'AnalisaController@index')->name('analisa');
+    Route::get('cetak-analisa', 'AnalisaController@cetak')->name('cetak-analisa');
     
-    Route::get('products/foto/{product}', 'ProductController@foto')->name('products.foto');
-    Route::get('product_photos/create_foto/{product}', 'ProductController@create_foto')->name('product_photos.create');
-    Route::post('product_photos', 'ProductController@store_foto')->name('product_photos.store');
-    Route::get('product_photos/{product_photo}', 'ProductController@edit_foto')->name('product_photos.edit');
-    Route::put('product_photos/{product_photo}', 'ProductController@update_foto')->name('product_photos.update');
-    Route::delete('product_photos/{product_photo}', 'ProductController@destroy_foto')->name('product_photos.delete');
-
-    // regions
-    Route::get('regions', 'RegionController@index')->name('regions');
-    Route::get('regions/create', 'RegionController@create')->name('regions.create');
-    Route::post('regions', 'RegionController@store')->name('regions.store');
-    Route::get('regions/{region}', 'RegionController@edit')->name('regions.edit');
-    Route::put('regions/{region}', 'RegionController@update')->name('regions.update');
-    Route::delete('regions/{region}', 'RegionController@destroy')->name('regions.delete');
-
-    Route::get('regions/detail/{region}', 'RegionController@region_detail')->name('regions.detail');
-    Route::get('region_details/create_detail/{region}', 'RegionController@create_detail')->name('region_details.create');
-    Route::post('region_details', 'RegionController@store_detail')->name('region_details.store');
-    Route::get('region_details/{region_detail}', 'RegionController@edit_detail')->name('region_details.edit');
-    Route::put('region_details/{region_detail}', 'RegionController@update_detail')->name('region_details.update');
-    Route::delete('region_details/{region_detail}', 'RegionController@destroy_detail')->name('region_details.delete');
-
-    // mitra kerja
-    Route::get('mitra', 'TestimoniController@index')->name('mitra');
-    Route::get('mitra/create', 'TestimoniController@create')->name('mitra.create');
-    Route::post('mitra', 'TestimoniController@store')->name('mitra.store');
-    Route::get('mitra/{testimoni}', 'TestimoniController@edit')->name('mitra.edit');
-    Route::put('mitra/{testimoni}', 'TestimoniController@update')->name('mitra.update');
-    Route::delete('mitra/{testimoni}', 'TestimoniController@destroy')->name('mitra.delete');
-
-    // testimonial
-    Route::get('testimonials', 'TestimonialController@index')->name('testimonials');
-    Route::get('testimonials/create', 'TestimonialController@create')->name('testimonials.create');
-    Route::post('testimonials', 'TestimonialController@store')->name('testimonials.store');
-    Route::get('testimonials/create', 'TestimonialController@create')->name('testimonials.create');
-    Route::get('testimonials/{testimonial}', 'TestimonialController@edit')->name('testimonials.edit');
-    Route::put('testimonials/{testimonial}', 'TestimonialController@update')->name('testimonials.update');
-    Route::delete('testimonials/{testimonial}', 'TestimonialController@destroy')->name('testimonials.delete');
-    
-    Route::get('testimonials/kecamatan/{id}', 'TestimonialController@kecamatan')->name('testimonials.kecamatan');
-
-    // custom
-    Route::get('customs', 'CustomController@index')->name('customs');
-    Route::get('customs/create', 'CustomController@create')->name('customs.create');
-    Route::post('customs', 'CustomController@store')->name('customs.store');
-    Route::get('customs/{custom}', 'CustomController@edit')->name('customs.edit');
-    Route::put('customs/{custom}', 'CustomController@update')->name('customs.update');
-    Route::delete('customs/{custom}', 'CustomController@destroy')->name('customs.delete');
-
-    // sparepart
-    Route::get('spareparts', 'SparepartController@index')->name('spareparts');
-    Route::get('spareparts/create', 'SparepartController@create')->name('spareparts.create');
-    Route::post('spareparts', 'SparepartController@store')->name('spareparts.store');
-    Route::get('spareparts/{sparepart}', 'SparepartController@edit')->name('spareparts.edit');
-    Route::put('spareparts/{sparepart}', 'SparepartController@update')->name('spareparts.update');
-    Route::delete('spareparts/{sparepart}', 'SparepartController@destroy')->name('spareparts.delete');
-
-    // promos
-    Route::get('promos', 'PromoController@index')->name('promos');
-    Route::get('promos/create', 'PromoController@create')->name('promos.create');
-    Route::post('promos', 'PromoController@store')->name('promos.store');
-    Route::get('promos/{promo}', 'PromoController@edit')->name('promos.edit');
-    Route::put('promos/{promo}', 'PromoController@update')->name('promos.update');
-    Route::delete('promos/{promo}', 'PromoController@destroy')->name('promos.delete');
-
-    // legalitas
-    Route::get('legalitas', 'LegalitasController@index')->name('legalitas');
-    Route::get('legalitas/create', 'LegalitasController@create')->name('legalitas.create');
-    Route::post('legalitas', 'LegalitasController@store')->name('legalitas.store');
-    Route::get('legalitas/{legalitas}', 'LegalitasController@edit')->name('legalitas.edit');
-    Route::put('legalitas/{legalitas}', 'LegalitasController@update')->name('legalitas.update');
-    Route::delete('legalitas/{legalitas}', 'LegalitasController@destroy')->name('legalitas.delete');
-
 });

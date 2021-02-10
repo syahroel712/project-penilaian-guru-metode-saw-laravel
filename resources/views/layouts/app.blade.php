@@ -17,6 +17,7 @@
 <body style="background-color: #eee  !important;">
     <script src="{{ asset('backend/assets/libs/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{ asset('backend/dist/js/axios.min.js')}}"></script>
+    <script src="{{ asset('backend/dist/js/canvasjs/canvasjs.min.js')}}"></script>
 
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->

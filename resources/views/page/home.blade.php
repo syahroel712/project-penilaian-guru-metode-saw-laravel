@@ -26,15 +26,12 @@
                 <div class="card-body">
                     <div class="d-md-flex align-items-center">
                         <div>
-                            <h4>Oi</h4>
                         </div>
                     </div>
                     <div class="row">
                         <!-- column -->
                         <div class="col-lg-12">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptate dolorum commodi? Est, asperiores optio facere veniam laborum harum doloribus. Cum iste porro, magni similique rerum est eius animi numquam?</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus tempore minus omnis eveniet perferendis molestias facere eum nisi repellat nesciunt laudantium maiores nam cupiditate tenetur dignissimos, quis repudiandae delectus hic.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores unde, voluptate debitis illo reiciendis quisquam possimus! Ipsam quo placeat possimus at incidunt numquam alias dicta sequi quidem est, repellendus atque?</p>
+                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                         </div>
                     </div>
                 </div>
@@ -42,4 +39,29 @@
         </div>
     </div>
 </div>
+{{--
+<!-- DALAM BENTUK ARRAY -->
+@dd($data)
+<!-- DALAM BENTUK ARRAY TERDAPAT DATA OBJECT -->
+@dd(json_encode($data))
+--}}
+
+
+<script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer", {
+		title:{
+			text: "Daftar Peringkat Guru Berprestasi SMA"              
+		},
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			dataPoints: <?= json_encode($data) ?>
+		}
+		]
+	});
+	chart.render();
+}
+</script>
 @endsection

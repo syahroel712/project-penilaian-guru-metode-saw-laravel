@@ -80,7 +80,23 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
-        return view('page/home');
+        $kriteria_penilaian = DB::table('tb_penilaian')
+                            ->join('tb_guru', 'tb_guru.guru_id', '=', 'tb_penilaian.guru_id')
+                            ->join('tb_sekolah', 'tb_sekolah.sekolah_id', '=', 'tb_guru.guru_id')
+                            ->select('tb_guru.guru_nama')
+                            ->selectRaw('(tb_penilaian.penilaian_portofolio + tb_penilaian.penilaian_presentasi + tb_penilaian.penilaian_wawancara + tb_penilaian.penilaian_tes_tulis) as total')
+                            ->orderBy('total', 'DESC')
+                            ->orderBy('tb_penilaian.penilaian_tes_tulis', 'DESC')
+                            ->get();
+        $data=array();
+        foreach($kriteria_penilaian as $a)
+        {
+            $data[] = array(
+                        'label' => $a->guru_nama,
+                        'y' => (int)$a->total
+                    );
+        }
+        return view('page/home', compact('data'));
     }
     
     public function tabel()
